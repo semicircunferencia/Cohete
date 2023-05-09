@@ -157,10 +157,10 @@ ypunto=f(y(t),t). Modificar según el modelo, claro*/
 double funcionypunto(int j, double y[], double t) {
 
     // Componente 0
-    if(j==0) return y[2]/tau;
+    if(j==0) return y[2];
 
     // Componente 1
-    else if(j==1) return y[3]/(tau*y[0]*y[0]);
+    else if(j==1) return y[3]/(y[0]*y[0]);
 
     // Componente 2
     else if(j==2) {
@@ -168,7 +168,7 @@ double funcionypunto(int j, double y[], double t) {
         // Variables auxiliares
         double r2=y[0]*y[0], rprimacubo=pow(1+r2-2*y[0]*cos(y[1]-w*t),1.5);
 
-        return y[3]*y[3]/(tau*r2*y[0])-delta*(1.0/r2+mu*(y[0]-cos(y[1]-w*t))/rprimacubo);
+        return y[3]*y[3]/(r2*y[0])-delta*(1.0/r2+mu*(y[0]-cos(y[1]-w*t))/rprimacubo);
     }
 
     // Componente 3
@@ -183,5 +183,5 @@ double HamiltonianoModificado(double y[], double t) {
     // Calculo el rprima
     double rprima=sqrt(1+y[0]*y[0]-2*y[0]*cos(y[1]-w*t));
 
-    return y[2]*y[2]/2.0+y[3]*y[3]/(2*y[0]*y[0])-delta*tau/y[0]-delta*tau*mu/rprima-w*y[3];
+    return y[2]*y[2]/2.0+y[3]*y[3]/(2*y[0]*y[0])-delta/y[0]-delta*mu/rprima-w*y[3];
 }
