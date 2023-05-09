@@ -41,7 +41,7 @@ OBJETIVO: COMPROBAR QUE H'=H-omega*p_phi es una constante del movimiento. Usar v
 
 // Constantes
 #define w 6.8991264 // En rad/mes
-#define delta 1.818221682e-5 // En mes^-2
+#define delta 47.12830601 // En mes^-2
 #define mu 0.01230246418 // Adimensional
 
 using namespace std;
