@@ -36,8 +36,8 @@ OBJETIVO: COMPROBAR QUE H'=H-omega*p_phi es una constante del movimiento. Usar v
 #include <iomanip> // Formato en los ficheros
 
 #define P 4
-#define h 2e-7 // Paso temporal (en meses, es aprox. 1 min, un poco menos)
-#define itertemp 5e6
+#define h 2e-6 // Paso temporal (en meses, es aprox. 1 min, un poco menos)
+#define itertemp 5e5
 
 // Constantes
 #define w 6.8991264 // En rad/mes
@@ -73,7 +73,7 @@ int main(void) {
     for(int k=0; k<itertemp; k++) {
 
         // Imprimo los datos
-        if(k%100==0) {
+        if(k%10==0) {
             fich_posiciones << setw(15) << 0 << setw(15) << 0 << "\n"; // Tierra
             fich_posiciones << setw(15) << rLuna[0] << setw(15) << rLuna[1] << "\n"; // Luna
             fich_posiciones << setw(15) << yCohete[0]*cos(yCohete[1]) << setw(15) <<  yCohete[0]*sin(yCohete[1])
