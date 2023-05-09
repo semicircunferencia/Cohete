@@ -74,10 +74,9 @@ int main(void) {
 
         // Imprimo los datos
         if(k%1000==0) {
-            fich_posiciones << setw(15) << 0 << setw(15) << 0 << "\n"; // Tierra
-            fich_posiciones << setw(15) << rLuna[0] << setw(15) << rLuna[1] << "\n"; // Luna
-            fich_posiciones << setw(15) << yCohete[0]*cos(yCohete[1]) << setw(15) <<  yCohete[0]*sin(yCohete[1])
-            << "\n\n"; // Cohete
+            fich_posiciones << 0 << "," << 0 << "\n"; // Tierra
+            fich_posiciones << rLuna[0] << "," << rLuna[1] << "\n"; // Luna
+            fich_posiciones << yCohete[0]*cos(yCohete[1]) << "," <<  yCohete[0]*sin(yCohete[1]) << "\n\n"; // Cohete
 
             fich_H << HamiltonianoModificado(yCohete, k*h) << "\n";
         }
@@ -92,10 +91,9 @@ int main(void) {
     }
 
     // Imprimo una última vez
-    fich_posiciones << setw(15) << 0 << setw(15) << 0 << "\n"; // Tierra
-    fich_posiciones << setw(15) << rLuna[0] << setw(15) << rLuna[1] << "\n"; // Luna
-    fich_posiciones << setw(15) << yCohete[0]*cos(yCohete[1]) << setw(15) <<  yCohete[0]*sin(yCohete[1])
-    << "\n"; // Cohete
+    fich_posiciones << 0 << "," << 0 << "\n"; // Tierra
+    fich_posiciones << rLuna[0] << "," << rLuna[1] << "\n"; // Luna
+    fich_posiciones << yCohete[0]*cos(yCohete[1]) << "," <<  yCohete[0]*sin(yCohete[1]); // Cohete
 
     fich_H << HamiltonianoModificado(yCohete, h*itertemp);
 
