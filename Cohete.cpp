@@ -36,7 +36,7 @@ OBJETIVO: COMPROBAR QUE H'=H-omega*p_phi es una constante del movimiento. Usar v
 #include <iomanip> // Formato en los ficheros
 
 #define P 4
-#define h 2e-7 // Paso temporal (en meses, es aprox. 1 min, un poco menos)
+#define h 2e-7 // Paso temporal (en meses)
 #define itertemp 5e6
 
 // Constantes
