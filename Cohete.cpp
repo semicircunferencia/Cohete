@@ -36,8 +36,8 @@ OBJETIVO: COMPROBAR QUE H'=H-omega*p_phi es una constante del movimiento. Usar v
 #include <iomanip> // Formato en los ficheros
 
 #define P 4
-#define h 2e-6 // Paso temporal (en meses, es aprox. 1 min, un poco menos)
-#define itertemp 5e5
+#define h 2e-5 // Paso temporal (en meses, es aprox. 1 min, un poco menos)
+#define itertemp 5e4
 
 // Constantes
 #define w 6.8991264 // En rad/mes
@@ -132,19 +132,19 @@ void RungeKutta(double y[], double t) {
     double ymask[3][P];
 
     // Calculo k1
-    for(j=0; j<P; j++) k[0][j]=funcionypunto(j,y,t);
+    for(j=0; j<P; j++) k[0][j]=h*funcionypunto(j,y,t);
 
     // Calculo y+k_1/2 y k2
     for(j=0; j<P; j++) ymask[0][j]=y[j]+k[0][j]/2.0;
-    for(j=0; j<P; j++) k[1][j]=funcionypunto(j,ymask[0],t+h/2);
+    for(j=0; j<P; j++) k[1][j]=h*funcionypunto(j,ymask[0],t+h/2.0);
 
     // Calculo y+k_2/2 y k3
     for(j=0; j<P; j++) ymask[1][j]=y[j]+k[1][j]/2.0;
-    for(j=0; j<P; j++) k[2][j]=funcionypunto(j,ymask[1],t+h/2);
+    for(j=0; j<P; j++) k[2][j]=h*funcionypunto(j,ymask[1],t+h/2.0);
 
     // Calculo y+k_3 y k4
     for(j=0; j<P; j++) ymask[2][j]=y[j]+k[2][j];
-    for(j=0; j<P; j++) k[3][j]=funcionypunto(j,ymask[2],t+h);
+    for(j=0; j<P; j++) k[3][j]=h*funcionypunto(j,ymask[2],t+h);
 
     // El nuevo y
     for(j=0; j<P; j++) y[j]+=(k[0][j]+2*k[1][j]+2*k[2][j]+k[3][j])/6.0;
