@@ -7,15 +7,13 @@ plt.rcParams["font.family"] = "DejaVu Sans"
 ax = plt.subplot()      # subfigura
 
 # Datos
-data = np.loadtxt('EnergiasTyP.dat')
-tiempo = np.linspace[0,30,] # cojo el tiempo de la primera columna
-energiakin = data[:,1]
-energiapot = data[:,2]
-energia = data[:,3]
+data = np.loadtxt('H_modificado.dat')
+tiempo = np.linspace[0,30,6e-6] # cojo el tiempo de la primera columna
+H = data
 
 # configurar ejes
-ax.set_ylabel('Energía', fontname='DejaVu Sans', fontsize='12')
-ax.set_xlabel('Tiempo', fontname='DejaVu Sans', fontsize='12')
+ax.set_ylabel('H modificado (meses$^-2$)', fontname='DejaVu Sans', fontsize='12')
+ax.set_xlabel('Tiempo (días)', fontname='DejaVu Sans', fontsize='12')
 
 #Cambiar ticks
 #for label in ax.get_xticklabels():
@@ -26,11 +24,7 @@ ax.set_xlabel('Tiempo', fontname='DejaVu Sans', fontsize='12')
 #plt.yticks(fontsize='15')
 
 # Creación de la gráfica
-ax.plot(tiempo, energiakin, linestyle='-', marker='', markersize=4, color='#B4045F', label="E. cinética", linewidth=1.0)  #marker=puntos
-ax.plot(tiempo, energiapot, linestyle='-', marker='', markersize=4, color='#5FB404', label="E. potencial", linewidth=1.0)
-ax.plot(tiempo, energia, linestyle='-', marker='', markersize=4, color='#045FB4', label="E. total", linewidth=1.0)
-
-plt.legend(loc="upper left")
+ax.plot(tiempo, H, linestyle='-', marker='', markersize=4, color='#B4045F', label="H modificado", linewidth=1.0)  #marker=puntos
 
 
 # Guardar la gráfica
