@@ -8,11 +8,11 @@ ax = plt.subplot()      # subfigura
 
 # Datos
 data = np.loadtxt('H_modificado.dat')
-tiempo = np.linspace[0,30,6e-6] # cojo el tiempo de la primera columna
+tiempo = np.linspace(0,30,5001) # cojo el tiempo de la primera columna
 H = data
 
 # configurar ejes
-ax.set_ylabel('H modificado (meses$^-2$)', fontname='DejaVu Sans', fontsize='12')
+ax.set_ylabel(r'H modificado (meses$^{-2}$)', fontname='DejaVu Sans', fontsize='12')
 ax.set_xlabel('Tiempo (días)', fontname='DejaVu Sans', fontsize='12')
 
 #Cambiar ticks
